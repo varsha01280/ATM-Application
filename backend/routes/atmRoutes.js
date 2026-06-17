@@ -1,0 +1,23 @@
+const express=require('express');
+const router=express.Router();
+
+const{
+    signup,
+    login,
+    checkBalance,
+    deposit,
+    withdraw
+}=require('../controllers/atmController');
+router.post('/Signup',signup);
+router.post('/Login',login);
+
+router.get('/balance/:accountNumber',checkBalance);
+
+router.put('/deposit',deposit);
+router.put('/withdraw',withdraw);
+
+router.get('/test',(req,res)=>{
+    res.json({ message: "API is working" });
+});
+
+module.exports=router;
